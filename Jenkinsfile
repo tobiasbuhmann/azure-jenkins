@@ -7,13 +7,13 @@ tools {
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/tobiasbuhmann/azure-jenkins.git'
+       bat  'git clone https://github.com/tobiasbuhmann/azure-jenkins.git'
       }
       } 
 
 stage ('Terraform version') { 
   steps {
-   sh '''
+   bat '''
     terraform --version
    ''' 
     }
@@ -21,8 +21,7 @@ stage ('Terraform version') {
     
   stage ('Terraform init') { 
   steps {
-   sh '''
-   cd terraform-test/
+   bat '''
    terraform init
    ''' 
    }
@@ -30,8 +29,7 @@ stage ('Terraform version') {
    
  stage ('Terraform apply') { 
   steps {
-   sh '''
-   cd terraform-test/
+   bat '''
    terraform apply --auto-approve
    ''' 
    }
