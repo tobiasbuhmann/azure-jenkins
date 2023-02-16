@@ -4,16 +4,6 @@ pipeline {
        terraform 'terraform'
     }
     stages {
-        stage('Git checkout') {
-           steps{
-                git branch: 'main', credentialsId: 'bbca6aec-0de0-422e-8034-69229622bc4e', url: 'https://github.com/tobiasbuhmann/azure-jenkins.git'
-            }
-        }
-        stage('terraform format check') {
-            steps{
-                sh 'terraform fmt'
-            }
-        }
         stage('terraform Init') {
             steps{
                 sh 'terraform init'
