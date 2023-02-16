@@ -22,6 +22,7 @@ stage ('Terraform version') {
   stage ('Terraform init') { 
   steps {
    bat '''
+   cd azure-jenkins/
    terraform init
    ''' 
    }
@@ -30,6 +31,7 @@ stage ('Terraform version') {
  stage ('Terraform apply') { 
   steps {
    bat '''
+   cd azure-jenkins/
    terraform apply --auto-approve
    ''' 
    }
